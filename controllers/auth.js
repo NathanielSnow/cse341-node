@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const crypto = require("crypto");
 
 const bcrypt = require("bcryptjs");
@@ -32,20 +31,10 @@ exports.getLogin = (req, res, next) => {
       password: "",
     },
     validationErrors: [],
-=======
-const User = require("../models/user");
-
-exports.getLogin = (req, res, next) => {
-  res.render("auth/login", {
-    path: "/login",
-    pageTitle: "Login",
-    isAuthenticated: false,
->>>>>>> parent of 9a47bba... Update 2/4/2022
   });
 };
 
 exports.getSignup = (req, res, next) => {
-<<<<<<< HEAD
   let message = req.flash("error");
   if (message.length > 0) {
     message = message[0];
@@ -62,17 +51,10 @@ exports.getSignup = (req, res, next) => {
       confirmPassword: "",
     },
     validationErrors: [],
-=======
-  res.render("auth/signup", {
-    path: "/signup",
-    pageTitle: "Signup",
-    isAuthenticated: false,
->>>>>>> parent of 9a47bba... Update 2/4/2022
   });
 };
 
 exports.postLogin = (req, res, next) => {
-<<<<<<< HEAD
   const email = req.body.email;
   const password = req.body.password;
 
@@ -130,16 +112,6 @@ exports.postLogin = (req, res, next) => {
           console.log(err);
           res.redirect("/login");
         });
-=======
-  User.findById("61f6025ff69dd6a33c63e801")
-    .then((user) => {
-      req.session.isLoggedIn = true;
-      req.session.user = user;
-      req.session.save((err) => {
-        console.log(err);
-        res.redirect("/");
-      });
->>>>>>> parent of 9a47bba... Update 2/4/2022
     })
     .catch((err) => {
       const error = new Error(err);
@@ -148,7 +120,6 @@ exports.postLogin = (req, res, next) => {
     });
 };
 
-<<<<<<< HEAD
 exports.postSignup = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -194,9 +165,6 @@ exports.postSignup = (req, res, next) => {
       return next(error);
     });
 };
-=======
-exports.postSignup = (req, res, next) => {};
->>>>>>> parent of 9a47bba... Update 2/4/2022
 
 exports.postLogout = (req, res, next) => {
   req.session.destroy((err) => {
